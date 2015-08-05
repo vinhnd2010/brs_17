@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: :index
+
   def index
     @search = Book.search params[:q]
     @search.build_condition if @search.conditions.empty?
