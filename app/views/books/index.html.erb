@@ -1,0 +1,49 @@
+<% provide :title, t("book.all_book") %>
+
+<h1><%= t "book.books" %></h1>
+<%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |condition| %>
+    <%= render "condition_fields", f: condition %>
+  <% end %>
+  <br>
+  <p><%= link_to_add_fields t("book.add_condition"), f, :condition %></p>
+  <div class="fields">
+    <%= t "book.sort" %>
+    <div class="column">
+      <%= f.sort_fields do |sort_field| %>
+        <%= sort_field.sort_select Hash.new, class: "large-5 small-4 columns mrs radius" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="actions">
+    <%= button_tag type: "submit", class: "btn btn-success" do %>
+      <i class="glyphicon glyphicon-search"></i><%= t "book.search" %>
+    <% end %>
+  </div>
+<% end %>
+<br>
+<table id="book" class="table table-hover table-bordered text-center">
+  <tbody>
+    <tr>
+      <th class="text-center success">
+        <%= sort_link @search, :title, t("book.title") %>
+      </th>
+      <th class="text-center success">
+        <%= sort_link @search, :author, t("book.author") %>
+      </th>
+      <th class="text-center success">
+        <%= sort_link @search, :numpages, t("book.num_pages") %>
+      </th>
+      <th class="text-center success">
+        <%= sort_link @search, :publish_date, t("book.publish_date") %>
+      </th>
+      <th class="text-center success">
+        <%= sort_link @search, :category, t("category.name") %>
+      </th>
+    </tr>
+    <%= render @books %>
+  </tbody>
+</table>
+<%= will_paginate %>
+<div class="clear"></div>
