@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  static_page:
+    home: "Home"
+    logo: "BRS"
+    brs: "Book Review System"
+    intro: "This is home page for the Book Review System Application of Framgia"
+    trainteam: "Training team"
+    about: "About"
+    contact: "Contact"
+    about_page: "About page"
+    contact_page: "Contact page"
+  user:
+    index: "All users"
+    profile: "Profile"
+    setting: "Setting"
+    login: "Log in"
+    logout: "Log out"
+    account: "Account"
+
