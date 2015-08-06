@@ -39,10 +39,11 @@ en:
     logout: "Log out"
     account: "Account"
   book:
-    title: "Tite"
+    title: "Title"
     author: "Author"
     num_pages: "Number of page"
     publish_date: "Publish date"
+    description: "Description"
     search: "Search"
     title_contain: "Title contains"
     books: "Books"
@@ -51,5 +52,21 @@ en:
     add_condition: "Add condition"
     sort: "Sort: "
     all_book: "All books"
+    new: "New book"
+    button:
+      create: "Create"
   category:
     name: "Category name"
+  flash:
+    book:
+      created:
+        success: "Create book successfully"
+        fails: "Unable to create book"
+      deleted:
+        success: "Delete book successfully"
+        fails: "Unable to delete book"
+    permission:
+      denied: "Permission denied"
+  error:
+    form: "The form contains"
+    error: "error"
