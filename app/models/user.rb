@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable
   enum role: [:admin, :employees]
 
   has_many :activities, dependent: :destroy
@@ -21,14 +23,4 @@ class User < ActiveRecord::Base
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-
-  validates :name, presence: true, length: {maximum: 50,
-    too_long: "must have at most %{count} words"}
-  validates :password, length: {minimum: 6,
-    too_short: "must have at least %{count} words"}, allow_blank: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: {maximum: 255},
-    format: {with: VALID_EMAIL_REGEX},
-    uniqueness: {case_sensitive: false}
-  has_secure_password
 end
