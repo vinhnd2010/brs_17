@@ -38,4 +38,18 @@ en:
     login: "Log in"
     logout: "Log out"
     account: "Account"
-
+  book:
+    title: "Tite"
+    author: "Author"
+    num_pages: "Number of page"
+    publish_date: "Publish date"
+    search: "Search"
+    title_contain: "Title contains"
+    books: "Books"
+    date_format: "%B %e, %Y"
+    remove: "Remove"
+    add_condition: "Add condition"
+    sort: "Sort: "
+    all_book: "All books"
+  category:
+    name: "Category name"

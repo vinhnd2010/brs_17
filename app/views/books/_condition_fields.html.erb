@@ -1,0 +1,18 @@
+<div class="field">
+  <div class="large-3 small-3 columns">
+    <%= f.attribute_fields do |a| %>
+      <%= a.attribute_select associations: :category, class: "radius" %>
+    <% end %>
+  </div>
+  <div class="large-4 small-4 columns">
+    <%= f.predicate_select Hash.new, class: "radius" %>
+  </div>
+  <div class="large-4 small-4 columns">
+    <%= f.value_fields do |v| %>
+      <%= v.text_field :value, class: "radius" %>
+    <% end %>
+  </div>
+  <div class="large-1 small-1 columns">
+    <%= link_to "", "#", class: "remove_fields glyphicon glyphicon-remove" %>
+  </div>
+</div>
