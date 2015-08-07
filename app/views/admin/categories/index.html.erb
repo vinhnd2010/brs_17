@@ -1,0 +1,22 @@
+<% provide :title, t("category.title") %>
+<div class="page-header">
+  <%= link_to t("category.buttons.new"), new_admin_category_path,
+    class: "btn btn-default pull-right" %>
+  <h3><%= t "category.title" %></h3>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "category.title" %></th>
+      <th><%= t "category.description" %></th>
+      <th><%= t "category.books_count" %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+    <%= will_paginate %>
+  </tbody>
+</table>

@@ -67,7 +67,21 @@ en:
       update: "Update"
       submit: "Submit"
   category:
+    title: "Category"
+    description: "Description"
+    create_category: "Create Category"
+    edit_category: "Edit Category"
     name: "Category name"
+    book_count: "Number of books"
+    button:
+      create: "Create"
+      reset: "Reset"
+      cancel: "Cancel"
+      new: "New"
+      edit: "Edit"
+      delete: "Delete"
+    messages:
+      confirm: "Are you sure?"
   flash:
     book:
       created:
@@ -83,6 +97,14 @@ en:
       denied: "Permission denied"
     validates:
       tooshort: "must have at least %{count} words"
+    category:
+      created:
+        success: "Create category successfully"
+      updated:
+        success: "Update category successfully"
+      deleted:
+        success: "Delete category successfully"
+        failed: "Unable to delete category"
   error:
     form: "The form contains"
     error: "error"
