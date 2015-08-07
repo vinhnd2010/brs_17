@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  after_initialize :set_default_role, if: :new_record?
+
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable, password_length: 6..72
   enum role: [:admin, :employees]
 
   has_many :activities, dependent: :destroy
@@ -15,12 +17,13 @@ class User < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent: :destroy
+    foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
-
   has_many :passive_relationships, class_name: "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent: :destroy
+    foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+
+  def set_default_role
+    self.role ||= :employees
+  end
 end
