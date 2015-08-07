@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td>
+    <%= category.description.truncate 100 %>
+  </td>
+  <td><%= category.books.count %></td>
+  <td>
+    <%= link_to t("category.button.edit"),
+      edit_admin_category_path(category), class: "btn btn-primary" %>
+  </td>
+  <td>
+    <%= link_to t("category.buttons.delete"),
+      admin_category_path(category), method: :delete, class: "btn btn-danger",
+      data: {confirm: t("category.messages.confirm")} %>
+  </td>
+</tr>

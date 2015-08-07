@@ -1,0 +1,20 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/error_messages", object: @category %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
+  </div>
+  <ul class="list-inline">
+    <li>
+      <%= f.submit t("category.button.create"), class: "btn btn-success" %>
+    </li>
+    <li>
+      <%= button_tag t("category.button.reset"), type: :reset,
+        class: "btn btn-default" %>
+    </li>
+  </ul>
+<% end %>

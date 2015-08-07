@@ -63,21 +63,15 @@ p {
   font-weight: bold;
 }
 
-.footer {
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
+footer {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
-  a {
-    color: #555;
-    &:hover {
-      color: #222;
-    }
+  .footer-below {
+    padding: 25px 0;
+    background-color: #222;
   }
 }
 
@@ -100,4 +94,38 @@ p {
 
 .input-group {
   margin-bottom: 15px;
+}
+
+fieldset.fsStyle {
+  border: 1px solid #999999;
+  padding: 4px;
+  margin: 5px;
+}
+
+legend {
+  width: auto;
+  border-bottom: 0px;
+  color: inherit;
+
+  .legendStyle {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #888888;
+    background-color: transparent;
+    font-weight: bold;
+  }
+}
+
+.thumbnail {
+  height: 150px;
+  background-color: #449D44;
+}
+
+#main {
+  padding-bottom: 90px;
+  padding-top: 50px;
+}
+
+.flash {
+  margin-top: 10px;
 }

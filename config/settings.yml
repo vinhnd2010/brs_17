@@ -18,3 +18,5 @@ validates:
     minlength: 10
   review:
     minlength: 10
+category:
+  per_page: 10

@@ -1,0 +1,11 @@
+<% provide :title, t("category.title") %>
+<div class="page-header">
+  <%= link_to t("category.buttons.cancel"), admin_root_path,
+    class: "btn btn-default pull-right" %>
+  <h3><%= t("category.create_category") %></h3>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= render "form" %>
+  </div>
+</div>

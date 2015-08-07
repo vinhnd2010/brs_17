@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :books, only: :index
 
   namespace :admin do
+    root "categories#index"
     resources :books
+    resources :categories
   end
 end
