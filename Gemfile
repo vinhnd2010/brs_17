@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "4.2.3"
 gem "devise"
 # Use sqlite3 as the database for Active Record
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Bundle edge Rails instead: gem "rails", github: "rails/rails"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Use Uglifier as compressor for JavaScript assets
@@ -29,13 +29,15 @@ gem "bootstrap-will_paginate", "0.0.10"
 gem "bootstrap-sass", "3.2.0.2"
 gem "responders", "~> 2.0"
 gem "friendly_id", "~> 5.1.0"
-gem "rails_config"
+gem "rails_config", "0.4.2"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "ransack"
 gem "foundation-rails"
+gem "jquery-ui-rails"
 # Use ActiveModel has_secure_password
 gem "bcrypt", "~> 3.1.7"
 gem "kaminari"
+gem "bootsy"
 # Use Unicorn as the app server
 # gem "unicorn"
 

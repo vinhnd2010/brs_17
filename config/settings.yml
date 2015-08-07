@@ -2,3 +2,6 @@ paginate_per_page: 18
 default_per_page: 10
 window: 2
 param_name: "q[page]"
+book:
+  num_page_min: 1
+  num_page_max: 10000

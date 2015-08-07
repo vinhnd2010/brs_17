@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   has_many :book_users, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+  include Bootsy::Container
   extend FriendlyId
   friendly_id :title, use: :slugged
 
