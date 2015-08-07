@@ -1,0 +1,12 @@
+<% provide :title, t("book.all_book") %>
+
+<div class="row">
+  <hr>
+  <h1 class="text-info text-center">
+    <%= t "book.all_book" %>
+  </h1>
+  <div class="block book-container">
+    <%= render @books %>
+  </div>
+</div>
+<%= will_paginate %>

@@ -5,7 +5,9 @@ User.create!(name: "AdminBrs",
 
 Settings.seed_time.times do |n|
   name = Faker::Name.title
-  Category.create! name: name
+  description = Faker::Lorem.paragraphs(1)
+  Category.create! name: name,
+                   description: description
 end
 
 Settings.seed_time.times do |n|
@@ -14,11 +16,13 @@ Settings.seed_time.times do |n|
   category_id = Faker::Number.between 1, 20
   publish_date = Faker::Date.between 5.days.ago, Date.today
   num_pages = Faker::Number.between 50, 1000
+  description = Faker::Lorem.paragraphs(5).join("-")
   Book.create! title: title,
                author: author,
                publish_date: publish_date,
                num_pages: num_pages,
-               category_id: category_id
+               category_id: category_id,
+               description: description
 end
 
 Settings.seed_time.times do |n|
