@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806023453) do
+ActiveRecord::Schema.define(version: 20150807041013) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150806023453) do
     t.datetime "updated_at",               null: false
     t.string   "description",  limit: 255
     t.float    "rate",         limit: 24
+    t.string   "cover",        limit: 255
   end
 
   add_index "books", ["category_id"], name: "index_books_on_category_id", using: :btree

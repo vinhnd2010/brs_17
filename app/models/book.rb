@@ -10,15 +10,23 @@ class Book < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  mount_uploader :cover, CoverUploader
+
   validates :title, presence: true
   validates :author, presence: true
   validates :num_pages, presence: true
   validates :publish_date, presence: true
+  validate :check_day_present, on: [:create, :update]
 
   private
   UNRANSACKABLE_ATTRIBUTES = ["id", "updated_at", "category_id", "created_at", "slug", "description"]
 
   def self.ransackable_attributes auth_object = nil
     column_names - UNRANSACKABLE_ATTRIBUTES + _ransackers.keys
+  end
+
+  def check_day_present
+    errors.add :published_date,
+      I18n.t("error.wrong_date") if self.publish_date.to_date > Date.today
   end
 end

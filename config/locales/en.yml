@@ -61,8 +61,11 @@ en:
     sort: "Sort: "
     all_book: "All books"
     new: "New book"
+    edit: "Edit book %{title}"
     button:
       create: "Create"
+      update: "Update"
+      submit: "Submit"
   category:
     name: "Category name"
   flash:
@@ -70,6 +73,9 @@ en:
       created:
         success: "Create book successfully"
         fails: "Unable to create book"
+      updated:
+        success: "Update book successfully"
+        fails: "Unable to update book"
       deleted:
         success: "Delete book successfully"
         fails: "Unable to delete book"
@@ -80,3 +86,4 @@ en:
   error:
     form: "The form contains"
     error: "error"
+    wrong_date: "can't be in the future"

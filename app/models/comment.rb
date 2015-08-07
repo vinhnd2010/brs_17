@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   validates :content, presence: true, length: {minimum: Settings.validates.comment.minlength,
-    too_short: I18n.t("flash.validates.tooshort", count: count)
+    too_short: I18n.t("flash.validates.tooshort", count: count)}
 
   after_save :create_commented_activity
 
