@@ -75,6 +75,8 @@ en:
         fails: "Unable to delete book"
     permission:
       denied: "Permission denied"
+    validates:
+      tooshort: "must have at least %{count} words"
   error:
     form: "The form contains"
     error: "error"
