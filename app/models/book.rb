@@ -1,11 +1,12 @@
 class Book < ActiveRecord::Base
+  include Bootsy::Container
+
   belongs_to :category
 
   has_many :users, through: :book_users
   has_many :book_users, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  include Bootsy::Container
   extend FriendlyId
   friendly_id :title, use: :slugged
 

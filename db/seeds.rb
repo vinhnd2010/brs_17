@@ -1,9 +1,14 @@
-20.times do |n|
+User.create!(name: "AdminBrs",
+              email: "admin@gmail.com",
+              password: "ABCabc123",
+              password_confirmation: "ABCabc123")
+
+Settings.seed_time.times do |n|
   name = Faker::Name.title
   Category.create! name: name
 end
 
-100.times do |n|
+Settings.seed_time.times do |n|
   title = Faker::Name.title
   author = Faker::Name.name
   category_id = Faker::Number.between 1, 20
@@ -16,12 +21,32 @@ end
                category_id: category_id
 end
 
-100.times do |n|
+Settings.seed_time.times do |n|
   name = Faker::Name.name
   email = "brs#{n+1}@gmail.com"
-  password = "123456"
+  password = "ABCabc123"
   User.create! name:  name,
                email: email,
                password: password,
                password_confirmation: password
+end
+
+Settings.seed_time.times do |n|
+  content = Faker::Name.title
+  score = Faker::Number.between 1,5
+  user_id = Faker::Number.between 1, 100
+  book_id = Faker::Number.between 1, 100
+  Review.create! content: content,
+               score: score,
+               user_id: user_id,
+               book_id: book_id
+end
+
+Settings.seed_time.times do |n|
+  content = Faker::Name.title
+  review_id = Faker::Number.between 1, 100
+  user_id = Faker::Number.between 1, 100
+  Comment.create! content:  content,
+               review_id: review_id,
+               user_id: user_id
 end
