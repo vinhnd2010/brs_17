@@ -1,5 +1,5 @@
 class Admin::BooksController < ApplicationController
-  before_action :find_book, only: :destroy
+  before_action :find_book, except: [:new, :create]
   before_action :authenticate_user!
   before_action :vefiry_admin
 
@@ -20,10 +20,24 @@ class Admin::BooksController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.all
+  end
+
+  def update
+    if @book.update book_params
+      flash[:success] = t "flash.book.updated.success"
+      redirect_to root_path
+    else
+      flash[:danger] = t "flash.book.updated.fails"
+      @categories = Category.all
+      render :edit
+    end
+  end
   private
   def book_params
     params.require(:book).permit(:title, :author, :num_pages, :publish_date,
-      :description, :rate, :category_id, :bootsy_image_gallery_id)
+      :description, :rate, :category_id, :cover, :bootsy_image_gallery_id)
   end
 
   def find_book

@@ -1,0 +1,53 @@
+<%= form_for [:admin, @book], html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :category_id %>
+    <%= f.select :category_id, options_for_select(@categories.map{|c| [c.name, c.id ]},
+      selected_key = f.object.category_id), {}, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <%= f.text_field :title, class: "form-control",
+        placeholder: t("book.title") %>
+    </div>
+  </div>
+  <div class="form-group image-container">
+    <div class="input-group">
+      <%= f.file_field :cover %>
+      <div class="preview pull-right">
+        <%= image_tag @book.cover.thumb.url, class: "img-responsive",
+          id: "preview_cover" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <%= f.text_field :author, class: "form-control",
+        placeholder: t("book.author") %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.bootsy_area :description, rows: 15, class: "form-control",
+      placeholder: t("book.description") %>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <%= f.text_field :publish_date, class: "form-control datepicker",
+        placeholder: t("book.publish_date") %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <%= f.number_field :num_pages, class: "form-control",
+        max: Settings.book.num_page_max, min: Settings.book.num_page_min,
+        placeholder: t("book.num_pages") %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit t("book.button.submit"), class: "btn btn-primary pull-right" %>
+  </div>
+<% end %>
