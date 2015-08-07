@@ -18,3 +18,4 @@ validates:
     minlength: 10
   review:
     minlength: 10
+relationships: ["following", "followers"]

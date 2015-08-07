@@ -1,0 +1,15 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user-info">
+      <%= gravatar_for @user %>
+      <%= link_to @user.name, @user %>
+    </section>
+    <section class="btn-follow">
+      <%= render "follow_form" if user_signed_in? %>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+  </aside>
+</div>

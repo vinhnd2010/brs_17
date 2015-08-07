@@ -46,6 +46,41 @@ en:
     pass: "Password"
     haveAccount: "Already have an account?"
     noneAccount: "Don't have an account?"
+    follow: "Follow"
+    unfollow: "Unfollow"
+    details: "details"
+    following: "Following"
+    followers: "Followers"
+    user: "user"
+  flash:
+    user:
+      mustlogin: "User must login!"
+      permission: "Permission denied"
+    book:
+      created:
+        success: "Create book successfully"
+        fails: "Unable to create book"
+      deleted:
+        success: "Delete book successfully"
+        fails: "Unable to delete book"
+      created:
+        success: "Create book successfully"
+        fails: "Unable to create book"
+      updated:
+        success: "Update book successfully"
+        fails: "Unable to update book"
+      deleted:
+        success: "Delete book successfully"
+        fails: "Unable to delete book"
+    permission:
+      denied: "Permission denied"
+    validates:
+      tooshort: "must have at least %{count} words"
+    permission:
+      denied: "Permission denied"
+    validates:
+      tooshort: "must have at least %{count} words"
+    notfound: "Not found"
   book:
     title: "Title"
     author: "Author"

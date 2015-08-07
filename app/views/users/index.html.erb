@@ -1,0 +1,8 @@
+<% provide :title, t("user.index") %>
+<h1 class="all-users"><%= t "user.index" %></h1>
+<div class="col-sm-3 col-md-12">
+  <ul id="user-list" class="list-group">
+    <%= render @users %>
+  </ul>
+  <%= will_paginate %>
+</div>
