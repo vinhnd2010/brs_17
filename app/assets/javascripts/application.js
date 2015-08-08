@@ -17,7 +17,4 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery-ui/datepicker
-
-$(document).on("ready page:change", function(){
-  $(".datepicker").datepicker({dateFormat: "yy-mm-dd"});
-});
+//= require flip/dist/jquery.flip

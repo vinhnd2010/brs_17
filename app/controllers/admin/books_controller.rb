@@ -1,7 +1,12 @@
 class Admin::BooksController < ApplicationController
-  before_action :find_book, except: [:new, :create]
+  before_action :find_book, except: [:new, :create, :index]
   before_action :authenticate_user!
   before_action :vefiry_admin
+
+  def index
+    @books = Book.order("title").paginate page: params[:page],
+      per_page: Settings.paginate_per_page
+  end
 
   def new
     @categories = Category.all
@@ -12,7 +17,7 @@ class Admin::BooksController < ApplicationController
     @book = Book.new book_params
     if @book.save
       flash[:success] = t "flash.book.created.success"
-      redirect_to root_path
+      redirect_to admin_books_path
     else
       flash[:danger] = t "flash.book.created.fails"
       @categories = Category.all
@@ -27,13 +32,14 @@ class Admin::BooksController < ApplicationController
   def update
     if @book.update book_params
       flash[:success] = t "flash.book.updated.success"
-      redirect_to root_path
+      redirect_to admin_books_path
     else
       flash[:danger] = t "flash.book.updated.fails"
       @categories = Category.all
       render :edit
     end
   end
+
   private
   def book_params
     params.require(:book).permit(:title, :author, :num_pages, :publish_date,

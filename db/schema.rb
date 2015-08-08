@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150807041053) do
     t.integer  "num_pages",    limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "slug",         limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "description",  limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "description",  limit: 65535
     t.float    "rate",         limit: 24
     t.string   "cover",        limit: 255
   end
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20150807041053) do
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "slug",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "description", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
   end
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree

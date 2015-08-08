@@ -1,4 +1,4 @@
-jQuery ->
+$(document).on "page:change", ->
   $("form").on "click", ".remove_fields", (event) ->
     $(this).closest(".field").remove()
     event.preventDefault()
@@ -23,3 +23,11 @@ jQuery ->
 
     reader.readAsDataURL file
     return
+
+$(document).on "ready page:change", ->
+  $(".book-item .flip").flip
+    trigger: "hover"
+    speed: 700
+
+  $(".datepicker").datepicker dateFormat: "yy-mm-dd"
+  return

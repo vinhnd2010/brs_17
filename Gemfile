@@ -38,6 +38,7 @@ gem "jquery-ui-rails"
 gem "bcrypt", "~> 3.1.7"
 gem "kaminari"
 gem "bootsy"
+gem "bower-rails", "~> 0.10.0"
 # Use Unicorn as the app server
 # gem "unicorn"
 
