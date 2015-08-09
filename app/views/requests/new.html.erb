@@ -1,0 +1,18 @@
+<% provide :title, t("user.sent_request") %>
+<h1><%= t "user.sent_request" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @request do |f| %>
+      <%= f.label :book_name %>
+      <%= f.text_field :book_name, class: "form-control" %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
+
+      <%= f.label :pulisher %>
+      <%= f.text_field :pulisher, class: "form-control" %>
+
+      <%= f.submit t("user.sent_request"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

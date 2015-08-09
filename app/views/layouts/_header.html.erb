@@ -5,6 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to t("user.index"), users_path %></li>
+          <li><%= link_to t("user.index"), "#" %></li>
           <li><%= link_to t("user.sent_request"), "#" %></li>
           <li class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">
