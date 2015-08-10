@@ -1,0 +1,58 @@
+<% provide :title, @book.title %>
+
+<div class="page-header">
+  <ul class="list-inline pull-right">
+    <li>
+      <%= link_to t("category.button.back"),
+        books_path, class: "btn btn-default" %>
+    </li>
+  </ul>
+  <h3><%= @book.title %></h3>
+</div>
+<div class="row">
+  <div class="col-xs-3">
+    <%= render "action" %>
+  </div>
+  <div class="col-xs-9">
+    <div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#detail">
+          <%= t "book.label.detail" %></a></li>
+        <li><a data-toggle="tab" href="#review">
+          <%= t "book.label.review" %></a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="detail" class="tab-pane fade in active">
+          <h5 class="text-success"><%= t "book.book_detail" %></h5>
+          <table class="table table-hover">
+            <tr>
+              <th><%= t "book.author" %>:</th>
+              <td><%= @book.author %></td>
+            </tr>
+            <tr>
+              <th><%= t "book.publish-date" %>:</th>
+              <td><%= @book.publish_date %></td>
+            </tr>
+            <tr>
+              <th><%= t "book.category" %>:</th>
+              <td><%= @book.category.name %></td>
+            </tr>
+            <tr>
+              <th><%= t "book.num_pages" %>:</th>
+              <td><%= @book.num_pages %></td>
+            </tr>
+            <tr>
+              <th><%= t "book.rate" %>:</th>
+              <td><%= @book.rate %></td>
+            </tr>
+          </table>
+          <div>
+            <h5 class="text-success"><%= t "book.description" %></h5>
+            <em><%= @book.description %></em>
+          </div><br />
+        </div>
+        <div id="review" class="tab-pane fade"></div>
+      </div>
+    </div>
+  </div>
+</div>

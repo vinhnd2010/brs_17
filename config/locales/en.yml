@@ -104,6 +104,14 @@ en:
       update: "Update"
       submit: "Submit"
       show: "Details"
+    label:
+      rate: "Rate"
+      favor: "Favor"
+      read: "Read"
+      detail: "Details"
+      review: "Review"
+      book_detail: "Book Details"
+      book_description: "Book Description"
   category:
     title: "Category"
     description: "Description"
@@ -118,6 +126,7 @@ en:
       new: "New"
       edit: "Edit"
       delete: "Delete"
+      back: "Back"
     messages:
       confirm: "Are you sure?"
   request:

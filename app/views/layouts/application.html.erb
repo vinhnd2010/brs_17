@@ -13,14 +13,13 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <div class="container">
-      <%= render "layouts/flash" %>
-      <div id="main-content" class="row full-min-height">
+    <div id="wrapper">
+      <%= render "layouts/header" %>
+      <div class="container" id="main" >
+        <%= render "layouts/flash" %>
         <%= yield %>
       </div>
       <%= render "layouts/footer" %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

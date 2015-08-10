@@ -1,8 +1,3 @@
-User.create!(name: "AdminBrs",
-              email: "admin@gmail.com",
-              password: "ABCabc123",
-              password_confirmation: "ABCabc123")
-
 Settings.seed_time.times do |n|
   name = Faker::Name.title
   description = Faker::Lorem.paragraphs(1)
@@ -17,12 +12,14 @@ Settings.seed_time.times do |n|
   publish_date = Faker::Date.between 5.days.ago, Date.today
   num_pages = Faker::Number.between 50, 1000
   description = Faker::Lorem.paragraphs(5).join("-")
+  cover = "book2.jpg"
   Book.create! title: title,
                author: author,
                publish_date: publish_date,
                num_pages: num_pages,
                category_id: category_id,
-               description: description
+               description: description,
+               cover: cover
 end
 
 Settings.seed_time.times do |n|

@@ -18,6 +18,10 @@ class Book < ActiveRecord::Base
   validates :publish_date, presence: true
   validate :check_day_present, on: [:create, :update]
 
+  def cover_default
+    cover.present? ? cover : Settings.book.cover_default
+  end
+
   private
   UNRANSACKABLE_ATTRIBUTES = ["id", "updated_at", "category_id", "created_at", "slug", "description"]
 
