@@ -82,6 +82,7 @@ en:
     validates:
       tooshort: "must have at least %{count} words"
     notfound: "Not found"
+    sent_request: "Request book"
   book:
     title: "Title"
     author: "Author"
@@ -119,6 +120,10 @@ en:
       delete: "Delete"
     messages:
       confirm: "Are you sure?"
+  request:
+    all_request: "All book requests"
+    you_sure: "You sure?"
+    cacel: "cacel"
   flash:
     book:
       created:
@@ -142,6 +147,10 @@ en:
       deleted:
         success: "Delete category successfully"
         failed: "Unable to delete category"
+    request:
+      success: "Send book request successfully"
+      fail: "Unable to send book request"
+      deleted: "Request deleted"
   error:
     form: "The form contains"
     error: "error"

@@ -1,0 +1,7 @@
+<li>
+  <%= link_to request.book_name, "" %>
+  <%= request.author %>
+  <%= request.pulisher %>
+  | <%= link_to t("request.cacel"), request, method: :delete,
+    data: {confirm: t("request.you_sure")} %>
+</li>
