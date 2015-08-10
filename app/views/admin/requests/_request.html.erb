@@ -1,0 +1,21 @@
+<tr id="request-<%= request.id %>">
+  <td><%= request.book_name %></td>
+  <td><%= request.author %></td>
+  <td><%= request.pulisher %></td>
+  <td><%= link_to request.user.name, request.user %></td>
+  <td>
+    <div id="request-<%= request.id %>-status" class="col-md-1">
+      <%= request.status %>
+    </div>
+  </td>
+  <td>
+    <%= form_for [:admin, request], remote: true do |f| %>
+      <%= f.hidden_field :status, value: :accept %>
+      <%= f.submit t("request.accept"), class: "btn btn-primary" %>
+    <% end %>
+    <%= form_for [:admin, request], remote: true do |f| %>
+      <%= f.hidden_field :status, value: :decline %>
+      <%= f.submit t("request.decline"), class: "btn btn-primary" %>
+    <% end %>
+  </td>
+</tr>

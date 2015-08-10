@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root "categories#index"
     resources :books
     resources :categories
+    resources :requests, only: [:index, :update]
   end
 
   resources :users do

@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_action :user_signed_in?
 
   def index
-    @requests = Request.paginate page: params[:page]
+    @requests = current_user.requests.paginate page: params[:page]
   end
 
   def new
@@ -11,9 +11,11 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new request_params
+    @request.user = current_user
+    @request.wait!
     if @request.save
       flash[:success] = t "flash.request.success"
-      redirect_to root_url
+      redirect_to requests_path
     else
       render :new
     end
