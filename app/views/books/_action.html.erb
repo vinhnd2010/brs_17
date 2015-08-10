@@ -1,0 +1,25 @@
+<div class="thumbnail">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag @book.cover_default, size: Settings.size %>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-xs-4 text-center">
+      <%= link_to "#" do %>
+        <i class="glyphicon glyphicon-star"></i><br /><%= t "book.label.rate" %>
+      <% end %>
+    </div>
+    <div class="col-xs-4 text-center">
+      <%= link_to "#" do %>
+        <i class="glyphicon glyphicon-heart"></i><br /><%= t "book.label.favor" %>
+      <% end %>
+    </div>
+    <div class="col-xs-4 text-center">
+      <%= link_to "#" do %>
+        <i class="glyphicon glyphicon-book"></i><br /><%= t "book.label.read" %>
+      <% end %>
+    </div>
+  </div>
+</div>

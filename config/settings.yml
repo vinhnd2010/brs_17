@@ -6,6 +6,8 @@ param_name: "q[page]"
 book:
   num_page_min: 1
   num_page_max: 10000
+  cover_default: "book.jpg"
+  size: "330x250"
 activities:
   followed: followed
   unfollowed: unfollowed

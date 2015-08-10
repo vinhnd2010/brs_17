@@ -63,6 +63,12 @@ p {
   font-weight: bold;
 }
 
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  background-color: #F6F6F6;
+}
+
 footer {
   color: #fff;
   position: absolute;
@@ -117,8 +123,7 @@ legend {
 }
 
 .thumbnail {
-  height: 150px;
-  background-color: #449D44;
+  background-color: #FFF;
 }
 
 #main {
@@ -184,7 +189,6 @@ legend {
   }
 }
 
-/* users */
 .users.follow {
   padding: 0;
 }
@@ -233,4 +237,10 @@ legend {
 .btn-follow{
   margin-left: 10px;
   margin-top: 20px;
+}
+
+.tab-content {
+  background: #FFF;
+  margin-left: 18px;
+  padding: 10px;
 }
