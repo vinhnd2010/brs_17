@@ -1,0 +1,13 @@
+<div class="review-form">
+  <%= form_for current_user.reviews.build, html: {multipart: true} do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :rating %>
+    <div id="rate"></div>
+    <%= f.hidden_field :score %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+    <%= f.submit t("book.button.create-review"), class: "btn btn-primary pull-right" %>
+  <% end %><br><br>
+</div>

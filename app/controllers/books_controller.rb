@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @reviews = @book.reviews.latest
   end
 
   private

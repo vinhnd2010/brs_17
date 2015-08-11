@@ -38,4 +38,8 @@ class User < ActiveRecord::Base
   def following? other_user
     following.include? other_user
   end
+
+  def avatar_default
+    avatar.present? ? avatar : Settings.user.avatar_default
+  end
 end
