@@ -18,3 +18,4 @@
 //= require_tree .
 //= require jquery-ui/datepicker
 //= require flip/dist/jquery.flip
+//= require raty/lib/jquery.raty

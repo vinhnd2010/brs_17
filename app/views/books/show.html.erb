@@ -16,13 +16,13 @@
   <div class="col-xs-9">
     <div>
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#detail">
+        <li><a data-toggle="tab" href="#detail">
           <%= t "book.label.detail" %></a></li>
-        <li><a data-toggle="tab" href="#review">
+        <li class="active"><a data-toggle="tab" href="#review">
           <%= t "book.label.review" %></a></li>
       </ul>
       <div class="tab-content">
-        <div id="detail" class="tab-pane fade in active">
+        <div id="detail" class="tab-pane fade">
           <h5 class="text-success"><%= t "book.book_detail" %></h5>
           <table class="table table-hover">
             <tr>
@@ -51,7 +51,12 @@
             <em><%= @book.description %></em>
           </div><br />
         </div>
-        <div id="review" class="tab-pane fade"></div>
+        <div id="review" class="tab-pane fade in active">
+          <%= render "reviews/form" unless @reviews.detect{|review| review.user_id == current_user.id} %>
+          <table class="table table-hover">
+            <%= render @reviews if @reviews.any? %>
+          </table>
+        </div>
       </div>
     </div>
   </div>

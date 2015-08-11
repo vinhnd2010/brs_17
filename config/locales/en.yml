@@ -104,6 +104,8 @@ en:
       update: "Update"
       submit: "Submit"
       show: "Details"
+      comment: "Comment"
+      create-review: "Create Review"
     label:
       rate: "Rate"
       favor: "Favor"
@@ -171,6 +173,10 @@ en:
       deleted: "Request deleted"
       undelete: "Unable delete the request"
       unupdate: "Unable process request"
+    review:
+      created:
+        success: "Create review successfully"
+        fails: "Unable to create review"
   error:
     form: "The form contains"
     error: "error"

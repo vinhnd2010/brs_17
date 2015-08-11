@@ -15,4 +15,5 @@
  *= require foundation_and_overrides
  *= require bootsy
  *= require jquery-ui/datepicker
+ *= require raty/lib/jquery.raty
  */

@@ -1,0 +1,37 @@
+<tr>
+  <td>
+    <div class="row">
+      <div class="col-xs-1 text-center">
+        <%= image_tag review.user.avatar_default, size: Settings.user.size %>
+      </div>
+      <div class="col-xs-9">
+        <h5><%= link_to review.user.name, review.user %></h5>
+        <ul class="list-inline list-unstyled">
+          <% 5.times do |n| %>
+            <% if n < review.score %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% else %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-xs-2">
+        <h5><small><%= review.updated_at.strftime "%d/%m/%Y %H:%M" %></small></h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-9 col-xs-offset-1">
+        <em><%= review.content %></em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-6">
+        <%= link_to "#", class: "pull-right" do %>
+          <i class="glyphicon glyphicon-comment"></i>
+          <span><%= t "book.button.comment" %></span>
+        <% end %>
+      </div>
+    </div>
+  </td>
+</tr>

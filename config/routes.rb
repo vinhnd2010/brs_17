@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "contact" => "static_pages#contact"
 
   resources :books, only: [:index, :show]
+  resources :reviews, except: [:index, :show]
   resources :requests, only: [:create, :destroy, :index, :new]
 
   namespace :admin do

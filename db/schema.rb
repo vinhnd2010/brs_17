@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809091349) do
+ActiveRecord::Schema.define(version: 20150811074142) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150809091349) do
     t.integer  "num_pages",    limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "slug",         limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.text     "description",  limit: 65535
-    t.float    "rate",         limit: 24
+    t.float    "rate",         limit: 24,    default: 0.0
     t.string   "cover",        limit: 255
   end
 
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 20150809091349) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "avatar",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
