@@ -1,0 +1,11 @@
+<tr id="user-<%= user.id %>">
+  <td><%= link_to user.name, user %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td><%= user.created_at %></td>
+  <td><%= user.last_sign_in_at %></td>
+  <td>
+    <%= link_to t("user.delete"), [:admin, user], method: :delete,
+      data: {confirm: t("request.you_sure")} %>
+  </td>
+</tr>

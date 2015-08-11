@@ -53,10 +53,41 @@ en:
     followers: "Followers"
     user: "user"
     sent_request: "Request book"
+    name: "Name"
+    email: "Email"
+    role: "Role"
+    created_at: "Created at"
+    last_sign_in: "Last sign in"
+    action: "Action"
+    delete: "Delete"
   flash:
+    book:
+      created:
+        success: "Create book successfully"
+        fails: "Unable to create book"
+      updated:
+        success: "Update book successfully"
+        fails: "Unable to update book"
+      deleted:
+        success: "Delete book successfully"
+        fails: "Unable to delete book"
+    permission:
+      denied: "Permission denied"
+    validates:
+      tooshort: "must have at least %{count} words"
+    category:
+      created:
+        success: "Create category successfully"
+      updated:
+        success: "Update category successfully"
+      deleted:
+        success: "Delete category successfully"
+        failed: "Unable to delete category"
     user:
       mustlogin: "User must login!"
       permission: "Permission denied"
+      deleted: "User deleted"
+      undeleted: "User undeleted"
     book:
       created:
         success: "Create book successfully"
@@ -77,12 +108,14 @@ en:
       denied: "Permission denied"
     validates:
       tooshort: "must have at least %{count} words"
-    permission:
-      denied: "Permission denied"
-    validates:
-      tooshort: "must have at least %{count} words"
     notfound: "Not found"
     sent_request: "Request book"
+    request:
+      success: "Send book request successfully"
+      fail: "Unable to send book request"
+      deleted: "Request deleted"
+      undelete: "Unable delete the request"
+      unupdate: "Unable process request"
   book:
     title: "Title"
     author: "Author"

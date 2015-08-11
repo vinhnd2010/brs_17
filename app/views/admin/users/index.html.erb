@@ -1,0 +1,22 @@
+<% provide :title, t("user.index") %>
+
+<h1><%= t "user.index" %></h1>
+<br/>
+<div class="row">
+  <table class="table table-hover table-bordered text-center">
+    <thead>
+      <tr>
+        <th class="text-center success"><%= t "user.name" %></th>
+        <th class="text-center success"><%= t "user.email" %></th>
+        <th class="text-center success"><%= t "user.role" %></th>
+        <th class="text-center success"><%= t "user.created_at" %></th>
+        <th class="text-center success"><%= t "user.last_sign_in" %></th>
+        <th class="text-center success"><%= t "user.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>
