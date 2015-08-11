@@ -133,6 +133,15 @@ en:
     all_request: "All book requests"
     you_sure: "You sure?"
     cacel: "cacel"
+    book_name: "Book title"
+    author: "Author"
+    pulisher: "Publisher"
+    requester: "Requester"
+    action: "Action"
+    waiting: "waiting"
+    accept: "Accept"
+    decline: "Decline"
+    status: "Status"
   flash:
     book:
       created:
@@ -160,6 +169,8 @@ en:
       success: "Send book request successfully"
       fail: "Unable to send book request"
       deleted: "Request deleted"
+      undelete: "Unable delete the request"
+      unupdate: "Unable process request"
   error:
     form: "The form contains"
     error: "error"
