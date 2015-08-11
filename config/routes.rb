@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :books
     resources :categories
     resources :requests, only: [:index, :update]
+    resources :users, only: [:index,:destroy]
   end
 
   resources :users do

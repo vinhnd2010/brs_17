@@ -4,6 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to t("book.books"), books_path %></li>
           <li><%= link_to t("user.index"), users_path %></li>
           <% unless current_user.admin? %>
             <li><%= link_to t("user.sent_request"), new_request_path %></li>
