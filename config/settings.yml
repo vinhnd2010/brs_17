@@ -25,3 +25,9 @@ relationships: ["following", "followers"]
 user:
   avatar_default: "user.png"
   size: "50x50"
+book_users:
+  unread: unread
+  read: read
+  reading: reading
+  favorited: add_to_favorites
+  unfavorited: remove_from_favorites

@@ -10,6 +10,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    if current_user
+      @book_user = BookUser.find_or_initialize_by user_id: current_user,
+        book_id: @book.id
+    end
     @reviews = @book.reviews.latest
     @comment = current_user.comments.build
   end

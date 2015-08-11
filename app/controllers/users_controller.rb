@@ -9,5 +9,6 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find params[:id]
     @user = current_user if @user.nil?
+    @book_users = @user.book_users.favorite
   end
 end

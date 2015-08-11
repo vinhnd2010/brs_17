@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811074142) do
+ActiveRecord::Schema.define(version: 20150811103508) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20150811074142) do
 
   create_table "book_users", force: :cascade do |t|
     t.boolean  "status"
-    t.boolean  "faverite"
     t.integer  "book_id",    limit: 4
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.boolean  "favorite",             default: false
   end
 
   add_index "book_users", ["book_id"], name: "index_book_users_on_book_id", using: :btree

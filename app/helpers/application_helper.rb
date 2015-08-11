@@ -1,11 +1,7 @@
 module ApplicationHelper
   def full_title page_title = ""
     base_title = t "static_page.brs"
-    if page_title.empty?
-      base_title
-    else
-      "#{page_title} | #{base_title}"
-    end
+    page_title.empty? ? base_title : page_title << " | " << base_title
   end
 
   def link_to_add_fields name, f, type
@@ -16,5 +12,13 @@ module ApplicationHelper
     end
     link_to name, "#", class: "add_fields btn btn-success",
       data: {id: id, fields: fields.gsub("\n", "")}
+  end
+
+  def action_type book_user
+    if book_user
+      book_user.favorite? ? Settings.book_users.unfavorited : Settings.book_users.favorited
+    else
+      Settings.book_users.favorited
+    end
   end
 end
