@@ -1,0 +1,8 @@
+<div class="well">
+  <%= form_for review.comments.build, remote: true, method: :post do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :review_id, value: review.id %>
+    <%= f.text_area :content, rows: 1, id: "comment_body_#{review.id}" %>
+    <%= f.submit t("book.button.submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>

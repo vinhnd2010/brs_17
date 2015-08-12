@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811083229) do
+ActiveRecord::Schema.define(version: 20150811074142) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20150811083229) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "book_users", force: :cascade do |t|
-    t.integer  "status",     limit: 4
+    t.boolean  "status"
+    t.boolean  "faverite"
     t.integer  "book_id",    limit: 4
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.boolean  "favorite"
   end
 
   add_index "book_users", ["book_id"], name: "index_book_users_on_book_id", using: :btree
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150811083229) do
     t.integer  "num_pages",    limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "slug",         limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "description",  limit: 255
-    t.float    "rate",         limit: 24,  default: 0.0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.text     "description",  limit: 65535
+    t.float    "rate",         limit: 24,    default: 0.0
     t.string   "cover",        limit: 255
   end
 
