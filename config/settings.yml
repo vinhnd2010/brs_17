@@ -35,3 +35,7 @@ book_users:
   reading: mark_as_reading
   favorited: add_to_favorites
   unfavorited: remove_from_favorites
+likes:
+  like: mark_like
+  unlike: mark_unlike
+
