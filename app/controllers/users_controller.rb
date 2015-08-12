@@ -10,5 +10,6 @@ class UsersController < ApplicationController
     @user = User.friendly.find params[:id]
     @user = current_user if @user.nil?
     @book_users = @user.book_users.favorite
+    @activities = @user.activities.latest
   end
 end

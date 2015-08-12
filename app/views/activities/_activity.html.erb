@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= activity.user.name %>
+        <strong><%= activity.content %></strong>
+        <%= activity.create_activity activity.target_id, activity.content %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= link_to "#" do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+          <span><%= t "activity.title.like" %></span>
+        <% end %>
+      </div>
+    </div>
+  </td>
+</tr>
