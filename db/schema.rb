@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20150811103508) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "book_users", force: :cascade do |t|
-    t.boolean  "status"
+    t.integer  "status",     limit: 4
     t.integer  "book_id",    limit: 4
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.boolean  "favorite",             default: false
   end
 

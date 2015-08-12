@@ -31,6 +31,9 @@ en:
     contact: "Contact"
     about_page: "About page"
     contact_page: "Contact page"
+  activity:
+    title: "Activities"
+    like: "Like"
   user:
     index: "All users"
     profile: "Profile"
