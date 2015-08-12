@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get "about" => "static_pages#about"
   get "contact" => "static_pages#contact"
 
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show, :update] do
+    resource :book_user, only: [:create, :update]
+  end
   resources :reviews, except: [:index, :show]
   resources :comments, except: [:index, :show]
   resources :requests, only: [:create, :destroy, :index, :new]

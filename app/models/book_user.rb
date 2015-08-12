@@ -7,6 +7,8 @@ class BookUser < ActiveRecord::Base
   after_update :create_favorited_activity
   after_create :create_read_activity
 
+  scope :favorite, -> {where favorite: true}
+
   private
   def create_read_activity
     create_activity user_id, book_id, Settings.activities.read

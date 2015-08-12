@@ -1,0 +1,8 @@
+<li class="list-group-item list-group-item-info">
+  <% if @book_users.find_by(user_id: @user.id) %>
+    <% @book_users.each do |book_user| %>
+      - <%= link_to book_user.book.title, book_user.book %>
+      <br/>
+    <% end %>
+  <% end %>
+</li>

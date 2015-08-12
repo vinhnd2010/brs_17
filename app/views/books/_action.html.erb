@@ -1,4 +1,4 @@
-<div class="thumbnail">
+<div class="thumbnail" id="book-<%= @book.id %>">
   <div class="row">
     <div class="col-xs-12">
       <%= image_tag @book.cover_default, size: Settings.book.size %>
@@ -12,13 +12,16 @@
       <% end %>
     </div>
     <div class="col-xs-4 text-center">
-      <%= link_to "#" do %>
-        <i class="glyphicon glyphicon-heart"></i><br /><%= t "book.label.favor" %>
+      <%= link_to book_book_user_path(@book, action_type: action_type(@book_user)),
+        remote: true, method: :post do %>
+        <i class="glyphicon <%= @book_user.favorite? ? 'glyphicon-remove' :
+          'glyphicon-heart' %>"></i><br /><%= t "book.label.favor" %>
       <% end %>
     </div>
     <div class="col-xs-4 text-center">
       <%= link_to "#" do %>
-        <i class="glyphicon glyphicon-book"></i><br /><%= t "book.label.read" %>
+        <i class="glyphicon glyphicon-book"></i><br />
+        <%= t "book.label.read" %>
       <% end %>
     </div>
   </div>

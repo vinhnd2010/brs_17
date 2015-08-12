@@ -60,62 +60,8 @@ en:
     last_sign_in: "Last sign in"
     action: "Action"
     delete: "Delete"
-  flash:
-    book:
-      created:
-        success: "Create book successfully"
-        fails: "Unable to create book"
-      updated:
-        success: "Update book successfully"
-        fails: "Unable to update book"
-      deleted:
-        success: "Delete book successfully"
-        fails: "Unable to delete book"
-    permission:
-      denied: "Permission denied"
-    validates:
-      tooshort: "must have at least %{count} words"
-    category:
-      created:
-        success: "Create category successfully"
-      updated:
-        success: "Update category successfully"
-      deleted:
-        success: "Delete category successfully"
-        failed: "Unable to delete category"
-    user:
-      mustlogin: "User must login!"
-      permission: "Permission denied"
-      deleted: "User deleted"
-      undeleted: "User undeleted"
-    book:
-      created:
-        success: "Create book successfully"
-        fails: "Unable to create book"
-      deleted:
-        success: "Delete book successfully"
-        fails: "Unable to delete book"
-      created:
-        success: "Create book successfully"
-        fails: "Unable to create book"
-      updated:
-        success: "Update book successfully"
-        fails: "Unable to update book"
-      deleted:
-        success: "Delete book successfully"
-        fails: "Unable to delete book"
-    permission:
-      denied: "Permission denied"
-    validates:
-      tooshort: "must have at least %{count} words"
-    notfound: "Not found"
-    sent_request: "Request book"
-    request:
-      success: "Send book request successfully"
-      fail: "Unable to send book request"
-      deleted: "Request deleted"
-      undelete: "Unable delete the request"
-      unupdate: "Unable process request"
+    favorite_book: "Favorite book"
+
   book:
     title: "Title"
     author: "Author"
@@ -143,6 +89,8 @@ en:
       rate: "Rate"
       favor: "Favor"
       read: "Read"
+      unread: "Unread"
+      reading: "Reading"
       detail: "Details"
       review: "Review"
       book_detail: "Book Details"
@@ -212,7 +160,19 @@ en:
         fails: "Unable to create review"
     comment:
       error: "Something wrong"
+    user:
+      mustlogin: "User must login!"
+      permission: "Permission denied"
+      deleted: "User deleted"
+      undeleted: "User undeleted"
+    notfound: "Not found"
+    sent_request: "Request book"
+    book:
+      action:
+        update: "Updated"
+        unupdate: "unable update"
   error:
     form: "The form contains"
     error: "error"
     wrong_date: "can't be in the future"
+    something_wrong: "Something wrong!"
