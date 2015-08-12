@@ -7,6 +7,8 @@ class BookUser < ActiveRecord::Base
   after_update :create_favorited_activity
   after_create :create_read_activity
 
+  enum status: [:not_read, :readed, :reading]
+
   scope :favorite, -> {where favorite: true}
 
   private
