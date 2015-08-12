@@ -28,13 +28,14 @@ end
                password_confirmation: password
 end
 
-books = Book.order(:created_at)
+users = User.order :created_at
+books = Book.order :created_at
 
 books.each do |book|
   10.times do |n|
     content = Faker::Name.title
     score = Faker::Number.between 1,5
-    user_id = Faker::Number.between 1, 100
+    user_id = users.sample.id
     book.reviews.create! content: content, score: score, user_id: user_id
   end
 end
@@ -44,7 +45,7 @@ reviews = Review.order(:created_at)
 reviews.each do |review|
   5.times do |n|
     content = Faker::Name.title
-    user_id = Faker::Number.between 1, 100
+    user_id = users.sample.id
     review.comments.create! content: content, user_id: user_id
   end
 end

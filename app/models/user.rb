@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, password_length: 6..72
   enum role: [:admin, :employees]
 
+  validates :name, presence: true
+
   has_many :activities, dependent: :destroy
   has_many :books, through: :book_users
   has_many :book_users, dependent: :destroy

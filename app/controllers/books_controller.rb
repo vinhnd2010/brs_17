@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
   def show
     @reviews = @book.reviews.latest
+    @comment = current_user.comments.build
   end
 
   private

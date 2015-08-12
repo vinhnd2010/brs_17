@@ -1,0 +1,18 @@
+<ol id="comments-<%= comment.id %>">
+  <div class="media">
+    <div class="media-body">
+        <h6 class="media-heading">
+          <%= link_to comment.user.name, comment.user if comment.user_id %>
+          <small>
+            <% if current_user? comment.user %>
+              <%= link_to comment_path(comment), method: :delete,
+                remote: true, class: "pull-right" do %>
+                <i class="glyphicon glyphicon-remove"></i>
+              <% end %>
+            <% end %>
+          </small>
+        </h6>
+      <%= comment.content %>
+    </div>
+  </div>
+</ol>

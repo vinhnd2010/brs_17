@@ -210,6 +210,8 @@ en:
       created:
         success: "Create review successfully"
         fails: "Unable to create review"
+    comment:
+      error: "Something wrong"
   error:
     form: "The form contains"
     error: "error"

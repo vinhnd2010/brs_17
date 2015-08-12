@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show]
   resources :reviews, except: [:index, :show]
+  resources :comments, except: [:index, :show]
   resources :requests, only: [:create, :destroy, :index, :new]
 
   namespace :admin do
