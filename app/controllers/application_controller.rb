@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  load_and_authorize_resource find_by: :slug unless :devise_controller
 
   include SessionsHelper
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = t "access_denied"
+    redirect_to root_url, alert: exception.message
+  end
 
   protected
   def configure_permitted_parameters

@@ -179,3 +179,4 @@ en:
     error: "error"
     wrong_date: "can't be in the future"
     something_wrong: "Something wrong!"
+    access_denied: "Access denied."
