@@ -1,7 +1,14 @@
-<li>
-  <%= link_to request.book_name, "" %>
-  <%= request.author %>
-  <%= request.pulisher %>
-  | <%= link_to t("request.cacel"), request, method: :delete,
+<tr id="request-<%= request.id %>">
+  <td><%= request.book_name %></td>
+  <td><%= request.author %></td>
+  <td><%= request.pulisher %></td>
+  <td>
+    <div id="request-<%= request.id %>-status" class="col-md-1">
+      <%= request.status %>
+    </div>
+  </td>
+  <td>
+    <%= link_to t("request.cancel"), request, method: :delete,
     data: {confirm: t("request.you_sure")} %>
-</li>
+  </td>
+</tr>
