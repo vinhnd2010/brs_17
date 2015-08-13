@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811103508) do
+ActiveRecord::Schema.define(version: 20150812093354) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150811103508) do
     t.integer  "num_pages",    limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "slug",         limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.text     "description",  limit: 65535
-    t.float    "rate",         limit: 24,    default: 0.0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "description",  limit: 255
+    t.float    "rate",         limit: 24,  default: 0.0
     t.string   "cover",        limit: 255
   end
 

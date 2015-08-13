@@ -94,6 +94,7 @@ en:
       read: "Read"
       unread: "Unread"
       reading: "Reading"
+      readed: "Readed"
       detail: "Details"
       review: "Review"
       book_detail: "Book Details"

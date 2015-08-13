@@ -31,7 +31,7 @@ user:
   size: "50x50"
 book_users:
   unread: unread
-  read: read
-  reading: reading
+  readed: mark_as_readed
+  reading: mark_as_reading
   favorited: add_to_favorites
   unfavorited: remove_from_favorites
