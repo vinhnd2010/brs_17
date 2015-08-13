@@ -119,7 +119,7 @@ en:
   request:
     all_request: "All book requests"
     you_sure: "You sure?"
-    cacel: "cacel"
+    cancel: "Cancel"
     book_name: "Book title"
     author: "Author"
     pulisher: "Publisher"
@@ -181,3 +181,7 @@ en:
     wrong_date: "can't be in the future"
     something_wrong: "Something wrong!"
     access_denied: "Access denied."
+  email:
+    subject:
+      request: "Request accepted"
+      see_request: "See request"

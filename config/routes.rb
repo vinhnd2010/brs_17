@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, except: [:index, :show]
   resources :comments, except: [:index, :show]
-  resources :requests, only: [:create, :destroy, :index, :new]
+  resources :requests, except: [:edit, :update]
 
   namespace :admin do
     root "categories#index"

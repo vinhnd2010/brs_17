@@ -1,0 +1,7 @@
+<h1><%= t "email.subject.request" %></h1>
+<p>
+  Hi <%= @user.name %>,
+  Congratulation on your accepted book request.
+  You can see your request at:
+</p>
+<%= link_to t("t.subject.request.see_request"), "http://localhost:3000/#{requests_path}" %>

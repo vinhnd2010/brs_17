@@ -1,5 +1,23 @@
 <% provide :title, t("request.all_request") %>
-<h1><%= t "request.all_request" %></h1>
-<ul class="requests">
-  <%= render @requests %>
-</ul>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= t "request.all_request" %></h1>
+    <br/>
+    <table id="requests" class="table table-hover table-bordered text-center">
+      <thead>
+        <tr>
+          <th class="text-center success"><%= t "request.book_name" %></th>
+          <th class="text-center success"><%= t "request.author" %></th>
+          <th class="text-center success"><%= t "request.pulisher" %></th>
+          <th class="text-center success"><%= t "request.status" %></th>
+          <th class="text-center success"><%= t "request.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @requests %>
+      </tbody>
+    </table>
+    <%= will_paginate @requests %>
+  </div>
+</div>
