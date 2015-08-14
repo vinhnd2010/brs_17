@@ -49,3 +49,17 @@ reviews.each do |review|
     review.comments.create! content: content, user_id: user_id
   end
 end
+
+books.each do |book|
+  rate = book.reviews.average :score
+  book.update_attributes rate: rate
+end
+
+users.each do |user|
+  books.each do |book|
+    user_id = user.id
+    status = rand 0..2
+    favorite = [true, false].sample
+    book.book_users.create! user_id: user_id, status: status, favorite: favorite
+  end
+end

@@ -2,10 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   mount Bootsy::Engine => "/bootsy", as: "bootsy"
 
-  root "static_pages#home"
-
-  get "about" => "static_pages#about"
-  get "contact" => "static_pages#contact"
+  root "static_pages#index"
 
   resources :books, only: [:index, :show, :update] do
     resource :book_user, only: [:create, :update]

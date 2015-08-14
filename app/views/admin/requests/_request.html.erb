@@ -1,21 +1,27 @@
 <tr id="request-<%= request.id %>">
-  <td><%= request.book_name %></td>
-  <td><%= request.author %></td>
-  <td><%= request.pulisher %></td>
-  <td><%= link_to request.user.name, request.user %></td>
+  <td class="col-md-2"><%= request.book_name %></td>
+  <td class="col-md-2"><%= request.author %></td>
+  <td class="col-md-1"><%= request.pulisher %></td>
+  <td class="col-md-2"><%= link_to request.user.name, request.user %></td>
   <td>
     <div id="request-<%= request.id %>-status" class="col-md-1">
       <%= request.status %>
     </div>
   </td>
   <td>
-    <%= form_for [:admin, request], remote: true do |f| %>
-      <%= f.hidden_field :status, value: :accept %>
-      <%= f.submit t("request.accept"), class: "btn btn-primary" %>
-    <% end %>
-    <%= form_for [:admin, request], remote: true do |f| %>
-      <%= f.hidden_field :status, value: :decline %>
-      <%= f.submit t("request.decline"), class: "btn btn-primary" %>
-    <% end %>
+    <div class="row">
+      <div class="col-xs-6 text-center">
+        <%= form_for [:admin, request], remote: true do |f| %>
+          <%= f.hidden_field :status, value: :accept %>
+          <%= f.submit t("request.accept"), class: "btn btn-success" %>
+        <% end %>
+      </div>
+      <div class="col-xs-6">
+        <%= form_for [:admin, request], remote: true do |f| %>
+          <%= f.hidden_field :status, value: :decline %>
+          <%= f.submit t("request.decline"), class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
   </td>
 </tr>

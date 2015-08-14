@@ -4,6 +4,8 @@ class Request < ActiveRecord::Base
 
   enum status: [:wait, :accept, :decline]
 
+  scope :request_accepted_in_month, ->{where "status = ?", statuses[:accept]}
+
   private
   def sent_email
     if self.accept?

@@ -1,4 +1,6 @@
 class Admin::RequestsController < ApplicationController
+  before_action :verify_admin
+
   def index
     @requests = Request.paginate page: params[:page]
   end

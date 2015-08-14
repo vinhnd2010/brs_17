@@ -11,7 +11,7 @@
       <div class="col-xs-12">
         <%= link_to likes_path(action_type: like_type(current_user, activity)), method: :post, data: {params: "activity_id=#{activity.id}"}, remote: true do %>
         <i class="glyphicon glyphicon-thumbs-up"></i>
-        <span><%= like_status(current_user, activity) ? t("activity.title.unlike") : t("activity.title.like") %></span>
+        <span><%= like_status(current_user, activity) ? t("activity.unlike") : t("activity.like") %></span>
         <% end %>
       </div>
     </div>

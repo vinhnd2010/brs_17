@@ -7,7 +7,7 @@
       </div>
       <div class="back">
         <p class="short-desc">
-          <%= book.description.truncate(60).html_safe %>
+          <%= book.description %>
         </p>
         <%= link_to t("book.button.show"), edit_admin_book_path(book),
           class: "btn btn-sm btn-primary btn-view" %>
