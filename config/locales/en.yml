@@ -21,6 +21,7 @@
 
 en:
   hello: "Hello world"
+  hi: "Hi "
   static_page:
     home: "Home"
     logo: "BRS"
@@ -31,6 +32,7 @@ en:
     contact: "Contact"
     about_page: "About page"
     contact_page: "Contact page"
+    recent: "Recent books"
   activity:
     title: "Activities"
     like: "Like"

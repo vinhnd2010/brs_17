@@ -1,12 +1,8 @@
 class StaticPagesController < ApplicationController
-  skip_load_and_authorize_resource
+  before_action :authenticate_user!, only: [:index, :show]
 
-  def home
-  end
-
-  def about
-  end
-
-  def contact
+  def index
+    @categories = Category.latest
+    @book_users = current_user.book_users
   end
 end

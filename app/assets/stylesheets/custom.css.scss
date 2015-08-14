@@ -258,3 +258,28 @@ legend {
 .comment {
   background: #C3CCCB;
 }
+
+.carousel-inner .active.left {
+  left: -33%;
+}
+
+.carousel-inner .next {
+  left:  33%;
+}
+
+.carousel-inner .prev {
+  left: -33%;
+}
+
+.carousel-control.left,.carousel-control.right {
+  background-image:none;
+}
+
+.DocumentList
+{
+    overflow-x:hidden;
+    overflow-y:scroll;
+    height:200px;
+    width:100%;
+    padding: 0 15px;
+}
