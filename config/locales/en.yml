@@ -141,6 +141,9 @@ en:
       deleted:
         success: "Delete book successfully"
         fails: "Unable to delete book"
+      action:
+        update: "Updated"
+        unupdate: "unable update"
     permission:
       denied: "Permission denied"
     validates:
@@ -172,10 +175,6 @@ en:
       undeleted: "User undeleted"
     notfound: "Not found"
     sent_request: "Request book"
-    book:
-      action:
-        update: "Updated"
-        unupdate: "unable update"
   error:
     form: "The form contains"
     error: "error"
