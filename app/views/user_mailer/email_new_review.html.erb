@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>
+      <%= t "email.header" %>
+    </h1></br>
+    <p><%= @review.book.title %><%= t "email.review_content" %>
+      <%= @review.content %></p></br>
+    <p><%= t "email.thank" %><strong><%= @review.user.name %></strong></p>
+  </body>
+</html>

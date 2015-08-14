@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>
+      <%= t "email.header" %>
+      <%= @comment.review.content %>
+    </h1></br>
+    <p><%= @comment.user.name %><%= t "email.comment.content" %></p></br>
+    <p><%= @comment.content %></p></br>
+    <p><%= t "email.thank" %></p>
+  </body>
+</html>
