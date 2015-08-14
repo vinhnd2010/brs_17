@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :book do
-    sequence(:title) {|n| "Book #{n}"}
-    sequence(:author) {|n| "Superman-#{n}"}
-    sequence(:description) {|n| "Book description #{n}"}
-    publish_date "2015-17-08"
-    number_page 100
+    sequence(:title) {|n| "Book title #{n}"}
+    publish_date "2015-08-01"
+    author "Mr.Vinh"
+    description "Sample description book"
+    num_pages 30
     category
   end
 end

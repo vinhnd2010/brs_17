@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   has_many :books, dependent: :destroy
 
   validates :name, presence: true
-  validates :description, presence: true, length: {minimum: 50}
+  validates :description, presence: true, length: {minimum: 10}
 
   extend FriendlyId
   friendly_id :name, use: :slugged
