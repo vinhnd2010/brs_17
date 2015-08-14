@@ -1,19 +1,20 @@
-<tr>
+<tr id="activity-<%= activity.id %>">
   <td>
     <div class="row">
       <div class="col-xs-12">
-        <%= activity.user.name %>
+        <%= link_to activity.user.name, activity.user %>
         <strong><%= activity.content %></strong>
         <%= activity.create_activity activity.target_id, activity.content %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <%= link_to "#" do %>
-          <i class="glyphicon glyphicon-thumbs-up"></i>
-          <span><%= t "activity.title.like" %></span>
+        <%= link_to likes_path(action_type: like_type(current_user, activity)), method: :post, data: {params: "activity_id=#{activity.id}"}, remote: true do %>
+        <i class="glyphicon glyphicon-thumbs-up"></i>
+        <span><%= like_status(current_user, activity) ? t("activity.title.unlike") : t("activity.title.like") %></span>
         <% end %>
       </div>
     </div>
   </td>
 </tr>
+

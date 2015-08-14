@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814023806) do
+ActiveRecord::Schema.define(version: 20150812155716) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id",  limit: 4
@@ -103,9 +103,9 @@ ActiveRecord::Schema.define(version: 20150814023806) do
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.integer  "activity_id", limit: 4
-    t.boolean  "status"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.boolean  "status",                default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "likes", ["activity_id"], name: "index_likes_on_activity_id", using: :btree

@@ -21,4 +21,14 @@ module ApplicationHelper
       Settings.book_users.favorited
     end
   end
+
+  def like_status user, activity
+    like = Like.find_by user_id: user.id, activity_id: activity.id
+    like && like.status?
+  end
+
+  def like_type user, activity
+    like = Like.find_by user_id: user.id, activity_id: activity.id
+    (like.present? && like.status?) ? Settings.likes.unlike : Settings.likes.like
+  end
 end
