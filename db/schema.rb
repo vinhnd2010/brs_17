@@ -14,166 +14,155 @@
 ActiveRecord::Schema.define(version: 20150814023806) do
 
   create_table "activities", force: :cascade do |t|
-    t.integer  "target_id",  limit: 4
-    t.string   "content",    limit: 255
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "target_id"
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "book_users", force: :cascade do |t|
-    t.integer  "status",     limit: 4
-    t.integer  "book_id",    limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.boolean  "favorite",             default: false
+    t.integer  "status"
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "favorite",   default: false
   end
 
-  add_index "book_users", ["book_id"], name: "index_book_users_on_book_id", using: :btree
-  add_index "book_users", ["user_id"], name: "index_book_users_on_user_id", using: :btree
+  add_index "book_users", ["book_id"], name: "index_book_users_on_book_id"
+  add_index "book_users", ["user_id"], name: "index_book_users_on_user_id"
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",        limit: 255
+    t.string   "title"
     t.datetime "publish_date"
-    t.string   "author",       limit: 255
-    t.integer  "num_pages",    limit: 4
-    t.integer  "category_id",  limit: 4
-    t.string   "slug",         limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "description",  limit: 255
-    t.float    "rate",         limit: 24,  default: 0.0
-    t.string   "cover",        limit: 255
+    t.string   "author"
+    t.integer  "num_pages"
+    t.integer  "category_id"
+    t.string   "slug"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "description"
+    t.float    "rate",         default: 0.0
+    t.string   "cover"
   end
 
-  add_index "books", ["category_id"], name: "index_books_on_category_id", using: :btree
-  add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
+  add_index "books", ["category_id"], name: "index_books_on_category_id"
+  add_index "books", ["slug"], name: "index_books_on_slug", unique: true
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
-    t.integer  "bootsy_resource_id",   limit: 4
-    t.string   "bootsy_resource_type", limit: 255
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "bootsy_images", force: :cascade do |t|
-    t.string   "image_file",       limit: 255
-    t.integer  "image_gallery_id", limit: 4
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "slug",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.text     "description", limit: 65535
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
-  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
 
   create_table "comments", force: :cascade do |t|
-    t.string   "content",    limit: 255
-    t.integer  "review_id",  limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "content"
+    t.integer  "review_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "activity_id", limit: 4
-    t.boolean  "status",                default: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.boolean  "status",      default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  add_index "likes", ["activity_id"], name: "index_likes_on_activity_id", using: :btree
-  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+  add_index "likes", ["activity_id"], name: "index_likes_on_activity_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id", limit: 4
-    t.integer  "followed_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer  "status",     limit: 4
-    t.integer  "user_id",    limit: 4
-    t.string   "book_name",  limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "author",     limit: 255
-    t.string   "pulisher",   limit: 255
+    t.integer  "status"
+    t.integer  "user_id"
+    t.string   "book_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "author"
+    t.string   "pulisher"
   end
 
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "content",    limit: 255
-    t.integer  "score",      limit: 4,   default: 0
-    t.integer  "book_id",    limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "content"
+    t.integer  "score",      default: 0
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id", using: :btree
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255
-    t.integer  "role",                   limit: 4
-    t.string   "slug",                   limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "name"
+    t.integer  "role"
+    t.string   "slug"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "avatar",                 limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
-  add_foreign_key "activities", "users"
-  add_foreign_key "book_users", "books"
-  add_foreign_key "book_users", "users"
-  add_foreign_key "books", "categories"
-  add_foreign_key "comments", "reviews"
-  add_foreign_key "comments", "users"
-  add_foreign_key "likes", "activities"
-  add_foreign_key "likes", "users"
-  add_foreign_key "requests", "users"
-  add_foreign_key "reviews", "books"
-  add_foreign_key "reviews", "users"
 end
