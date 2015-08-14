@@ -1,0 +1,66 @@
+<% provide :title, t("static_page.home") %>
+<div class="page-header">
+  <h3 class="text-warning"><%= t "hi" << current_user.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <h5><%= t "static_page.recent" %></h5>
+    <div class="carousel slide" id="myCarousel">
+      <div class="carousel-inner">
+        <div class="item active"></div>
+        <% @book_users.each do |book_user| %>
+          <div class="item">
+            <div class="col-xs-2">
+              <%= image_tag book_user.book.cover_default, size: Settings.book.size %>
+              <h5 class="text-center">
+                <small class="text-info"><%= link_to book_user.book.title.truncate(20),
+                  book_user.book %></small>
+              </h5>
+              <h6 class="text-center"><i class="glyphicon glyphicon-book"></i>
+                <small class="text-default"><%= t "book.label.#{book_user.status}" %></small>
+              </h6>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <h5><%= t "activity.title" %></h5>
+    <fieldset class="fsStyle">
+      <div class="list-group DocumentList">
+        <table class="table table-hover list-group-item">
+          <%= render current_user.activities %>
+        </table>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr>
+
+<% @categories.each do |category| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h5><%= category.name %></h5>
+        <fieldset class="fsStyle">
+          <legend class="legendStyle">
+            <span class="label label-info"><%= t "book.books" %></span>
+          </legend>
+          <% category.books.each do |book| %>
+            <div class="col-xs-2">
+              <%= image_tag book.cover_default, size: Settings.book.size %>
+              <h5 class="text-center">
+                <small class="text-info"><%= link_to book.title.truncate(20), book %></small>
+              </h5>
+            </div>
+          <% end %>
+        </fieldset>
+    </div>
+  </div>
+  <hr>
+<% end %>
