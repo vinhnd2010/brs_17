@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = t "flash.review.created.success"
     else
-      flash[:danger] = t "flash.review.created.fails"
+      flash[:danger] = @review.errors.full_message.join(", ")
     end
     redirect_to book_path @review.book
   end

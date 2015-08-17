@@ -18,7 +18,15 @@
                   book_user.book %></small>
               </h5>
               <h6 class="text-center"><i class="glyphicon glyphicon-book"></i>
-                <small class="text-default"><%= t "book.label.#{book_user.status}" %></small>
+                <small class="text-default">
+                  <% if @book_user.status == "readed" %>
+                    <%= t "book.label.readed" %>
+                  <% elsif @book_user.status == "reading" %>
+                    <%= t "book.label.reading" %>
+                  <% else %>
+                    <%= t "book.label.read" %>
+                  <% end %>
+                </small>
               </h6>
             </div>
           </div>

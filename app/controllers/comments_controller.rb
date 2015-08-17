@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      flash[:danger] = t "flash.comment.error"
+      flash[:danger] = @comment.errors.full_message.join(", ")
     end
   end
 
