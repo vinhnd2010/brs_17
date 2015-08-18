@@ -4,6 +4,7 @@ class Request < ActiveRecord::Base
 
   enum status: [:wait, :accept, :decline]
 
+  scope :latest, ->{order created_at: :desc}
   scope :request_accepted_in_month, ->{where "status = ?", statuses[:accept]}
 
   private
