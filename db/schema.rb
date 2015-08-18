@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150814023806) do
     t.integer  "num_pages",    limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "slug",         limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "description",  limit: 255
-    t.float    "rate",         limit: 24,  default: 0.0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.text     "description",  limit: 65535
+    t.float    "rate",         limit: 24,    default: 0.0
     t.string   "cover",        limit: 255
   end
 
