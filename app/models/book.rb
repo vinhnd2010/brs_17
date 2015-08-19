@@ -14,8 +14,9 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true
   validates :author, presence: true
-  validates :num_pages, presence: true
+  validates :num_pages, presence: true, numericality: {minimum: 1}
   validates :publish_date, presence: true
+  validates :category, presence: true
   validate :check_day_present, on: [:create, :update]
 
   def cover_default
@@ -30,7 +31,7 @@ class Book < ActiveRecord::Base
   end
 
   def check_day_present
-    errors.add :published_date,
-      I18n.t("error.wrong_date") if self.publish_date.to_date > Date.today
+    errors.add :publish_date,
+      I18n.t("error.wrong_date") if self.publish_date.present? && self.publish_date.to_date > Date.today
   end
 end

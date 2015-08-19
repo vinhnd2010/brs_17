@@ -55,6 +55,7 @@ group :development, :test do
   gem "byebug"
   gem "capybara"
   gem "database_cleaner"
+  gem "rspec-collection_matchers"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem "web-console", "~> 2.0"
 
