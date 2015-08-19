@@ -41,7 +41,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.destroy
       flash[:success] = t("flash.category.deleted.success")
     else
-      flash[:failed] = t("flash.category.delete.failed")
+      flash[:failed] = t("flash.category.deleted.failed")
     end
     redirect_to admin_root_path
   end
