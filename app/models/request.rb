@@ -7,6 +7,9 @@ class Request < ActiveRecord::Base
   scope :latest, ->{order created_at: :desc}
   scope :request_accepted_in_month, ->{where "status = ?", statuses[:accept]}
 
+  validates :book_name, presence: true
+  validates :author, presence: true
+
   private
   def sent_email
     if self.accept?

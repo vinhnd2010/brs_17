@@ -10,13 +10,12 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new request_params
-    @request.user = current_user
-    @request.wait!
+    @request = current_user.requests.new request_params.merge(status: 0)
     if @request.save
       flash[:success] = t "flash.request.success"
       redirect_to requests_path
     else
+      flash[:error] = t "flash.request.fail"
       render :new
     end
   end
