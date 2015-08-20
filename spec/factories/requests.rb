@@ -5,6 +5,14 @@ FactoryGirl.define do
     pulisher "Framgia VN"
     status "wait"
     user
+
+    factory :invalid_book_name_request do
+      book_name ""
+    end
+
+    factory :invalid_author_request do
+      author ""
+    end
   end
 
   factory :invalid_request, parent: :request do
