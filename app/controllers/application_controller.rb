@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = t "access_denied"
+    flash[:error] = t "error.access_denied"
     redirect_to root_url, alert: exception.message
   end
 
@@ -19,8 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_admin
-    authenticate_user!
-    redirect_to root_path unless current_user.admin?
+    unless current_user.admin?
+      flash[:danger] = t "error.access_denied"
+      redirect_to root_path
+    end
   end
 
   def logged_in_user

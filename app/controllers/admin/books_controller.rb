@@ -1,7 +1,7 @@
 class Admin::BooksController < ApplicationController
   before_action :find_book, except: [:new, :create, :index]
   before_action :authenticate_user!
-  before_action :vefiry_admin
+  before_action :verify_admin
 
   def index
     @books = Book.order("title").paginate page: params[:page],
@@ -48,12 +48,5 @@ class Admin::BooksController < ApplicationController
 
   def find_book
     @book = Book.friendly.find params[:id]
-  end
-
-  def vefiry_admin
-    unless current_user.admin?
-      flash[:danger] = t "flash.permission.denied"
-      redirect_to new_user_session_path
-    end
   end
 end

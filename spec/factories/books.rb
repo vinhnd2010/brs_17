@@ -6,5 +6,9 @@ FactoryGirl.define do
     publish_date "2015-08-17"
     num_pages 100
     category
+
+    factory :title_blank do
+      title ""
+    end
   end
 end
